@@ -16,7 +16,10 @@ import {
   FileText,
   BarChart3,
   CalendarDays,
-  Wallet
+  Wallet,
+  Settings2,
+  RefreshCcw,
+  BarChart4
 } from 'lucide-react';
 import { Platform, NavItem } from './types';
 
@@ -51,6 +54,23 @@ export const PLATFORMS: Platform[] = [
     ],
     downloads: [
       { name: '易达宝货主端', qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=yidabao-shipper' },
+      { name: '易达宝司机端', qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=yidabao-driver' },
+    ]
+  },
+  {
+    id: 'aftermarket',
+    name: '车后电商平台',
+    description: '链接万千运力，重塑服务价值。为物流车辆提供从配件采购、维修保养到金融保险的全生命周期数字化服务，打造透明、标准、高效的车后综合服务体系。',
+    bgImage: 'https://images.unsplash.com/photo-1486006396193-47135889AF4D?auto=format&fit=crop&q=80&w=2000',
+    capabilities: [
+      { icon: <ShieldCheck className="w-6 h-6" />, label: '正品溯源' },
+      { icon: <BarChart4 className="w-6 h-6" />, label: '价格透明' },
+      { icon: <RefreshCcw className="w-6 h-6" />, label: '数字监管' },
+      { icon: <Settings2 className="w-6 h-6" />, label: '极速响应' },
+    ],
+    downloads: [
+      { name: '供应商端', qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=supplier' },
+      { name: '门店商家端', qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=store' },
       { name: '易达宝司机端', qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=yidabao-driver' },
     ]
   },
