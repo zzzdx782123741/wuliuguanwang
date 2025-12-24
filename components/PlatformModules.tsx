@@ -73,14 +73,14 @@ const PlatformModules: React.FC = () => {
                 <p className="text-gray-400 text-xs tracking-widest uppercase">随时随地 掌控运力</p>
               </div>
               
-              <div className="space-y-3 w-full overflow-y-auto custom-scrollbar px-2 flex-grow flex flex-col justify-center">
+              <div className="space-y-2 w-full overflow-y-auto custom-scrollbar px-2 flex-grow flex flex-col justify-center">
                 {platform.downloads.map((dl) => (
                   <div 
                     key={dl.name} 
-                    className="flex flex-col items-center bg-white/5 rounded-xl p-4 border border-white/5 hover:bg-white/10 transition-all duration-300 group/qr shrink-0"
+                    className="flex flex-col items-center bg-white/5 rounded-xl p-3 border border-white/5 hover:bg-white/10 transition-all duration-300 group/qr shrink-0"
                   >
                     <div className="bg-white p-1.5 rounded-lg shadow-inner mb-2 group-hover/qr:scale-105 transition-all duration-300">
-                      <img src={dl.qrUrl} alt={dl.name} className="w-24 h-24" />
+                      <img src={dl.qrUrl} alt={dl.name} className="w-20 h-20" />
                     </div>
                     <div className="flex flex-col items-center">
                       <span className="text-sm font-bold text-gray-100 tracking-wide mb-0.5">{dl.name}</span>
