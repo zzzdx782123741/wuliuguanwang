@@ -120,6 +120,7 @@ export const BUSINESS_ENTRANCE = [
   { label: '撮合交易平台入口：易达宝货主端', path: '#' },
   { label: '网络货运平台入口：万联通企业端', path: '#' },
   { label: 'TMS平台入口：易达宝货主端', path: '#' },
+  { label: '车后电商平台入口：万联通经销商端', path: '#' },
 ];
 
 export const CUSTOMERS = [

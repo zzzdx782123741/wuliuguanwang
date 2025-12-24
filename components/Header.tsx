@@ -81,29 +81,32 @@ const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             集团官网
           </a>
           
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsEntranceOpen(true)}
-            onMouseLeave={() => setIsEntranceOpen(false)}
-          >
-            <button className="flex items-center space-x-1.5 text-[14px] font-medium text-gray-700 hover:text-[#E60012] transition-colors py-2">
-              <span>物流业务入口</span>
-              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isEntranceOpen ? 'rotate-180' : ''}`} />
+          <div className="relative group">
+            <button 
+              className="flex items-center space-x-1.5 py-2 text-[13px] font-bold tracking-wide transition-colors group-hover:text-[#E60012] text-gray-700"
+            >
+              <span>物流业务后台入口</span>
+              <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
             </button>
-
-            {isEntranceOpen && (
-              <div className="absolute right-0 top-full mt-0 w-64 bg-white rounded-xl shadow-2xl border border-gray-100 py-3 overflow-hidden animate-in fade-in slide-in-from-top-1">
-                {BUSINESS_ENTRANCE.map((entrance, idx) => (
-                  <a
-                    key={idx}
-                    href={entrance.path}
-                    className="block px-5 py-2.5 text-sm font-medium text-gray-600 hover:bg-gray-50 hover:text-[#E60012]"
+            
+            <div className="absolute right-0 top-full pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
+              <div className="bg-white rounded-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden py-2">
+                {BUSINESS_ENTRANCE.map((item, index) => (
+                  <a 
+                    key={index}
+                    href={item.path}
+                    className="block px-5 py-3.5 hover:bg-gray-50 transition-colors group/item"
                   >
-                    {entrance.label}
+                    <div className="flex items-center justify-between text-[13px]">
+                      <span className="text-gray-500">{item.label.split('：')[0]}：</span>
+                      <span className="font-bold text-[#0052D9] group-hover/item:text-[#E60012] transition-colors">
+                        {item.label.split('：')[1]}
+                      </span>
+                    </div>
                   </a>
                 ))}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
