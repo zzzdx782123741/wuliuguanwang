@@ -85,27 +85,61 @@ const LogoGroup: React.FC<LogoGroupProps> = ({ title, items, showControls = fals
 
 const LogoTicker: React.FC = () => {
   return (
-    <section className="bg-white">
+    <section id="section-partners" className="bg-white min-h-screen snap-start flex flex-col justify-center relative py-24">
+      <div className="max-w-7xl mx-auto px-4 w-full mb-16 text-center">
+        <h2 className="text-3xl font-bold text-gray-900 mb-4">值得信赖的合作伙伴</h2>
+        <p className="text-gray-500">与行业领袖同行，共创物流新生态</p>
+      </div>
       {/* 合作客户模块 */}
       <LogoGroup 
         title="合作客户" 
         items={CUSTOMERS} 
-        showControls={true}
-        isPartnerGroup={false}
+        speed={40} 
       />
-      
-      {/* 模块间的留白与图片一致 */}
-      <div className="h-12"></div> 
       
       {/* 合作伙伴模块 */}
       <LogoGroup 
-        title="合作伙伴" 
+        title="生态伙伴" 
         items={PARTNERS} 
-        isPartnerGroup={true}
+        speed={35} 
+        direction="reverse" 
+        className="mt-12"
       />
-      
-      {/* 底部留白 */}
-      <div className="h-24"></div>
+
+      {/* Safety Section - Integrated here */}
+      <div id="safety" className="mt-32 border-t border-gray-100 pt-24 pb-12 snap-start scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <div className="inline-block px-4 py-1.5 bg-[#E60012] text-white text-[11px] font-bold rounded-full mb-8 shadow-lg shadow-red-600/20">
+            安全合规 · 值得信赖
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-20 italic tracking-tight text-gray-900">
+            让每一次运输都有保障
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-24">
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="text-6xl font-black text-[#E60012] mb-6 opacity-90 tracking-tighter group-hover:scale-110 transition-transform duration-300">01</div>
+              <h4 className="text-xl font-bold mb-6 text-gray-900 tracking-wide">全过程闭环管控</h4>
+              <p className="text-gray-500 text-sm leading-relaxed max-w-[280px]">
+                从订单受理、车辆调度、轨迹追踪到费用结算，实现业务流、信息流、资金流“多流合一”
+              </p>
+            </div>
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="text-6xl font-black text-[#E60012] mb-6 opacity-90 tracking-tighter group-hover:scale-110 transition-transform duration-300">02</div>
+              <h4 className="text-xl font-bold mb-6 text-gray-900 tracking-wide">多重安全审核</h4>
+              <p className="text-gray-500 text-sm leading-relaxed max-w-[280px]">
+                三证合一校验、工商数据联动、黑名单库筛查，多维度保障承运方真实合规
+              </p>
+            </div>
+            <div className="flex flex-col items-center group cursor-default">
+              <div className="text-6xl font-black text-[#E60012] mb-6 opacity-90 tracking-tighter group-hover:scale-110 transition-transform duration-300">03</div>
+              <h4 className="text-xl font-bold mb-6 text-gray-900 tracking-wide">阳光合规财税</h4>
+              <p className="text-gray-500 text-sm leading-relaxed max-w-[280px]">
+                直连官方税务系统，一键开具真实运输增值税专用发票，降低财税风险
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

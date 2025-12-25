@@ -39,14 +39,14 @@ const Header: React.FC<HeaderProps> = ({ currentPath, onNavigate }) => {
             onClick={() => onNavigate('home')}
             className="flex items-center group transition-all"
           >
-             <div className="mr-3 transition-transform group-hover:scale-110 duration-500">
-                <LogoIcon />
-             </div>
              <div className="flex flex-col text-left">
-                <div className="flex items-center">
-                  <span className="text-3xl font-black tracking-tighter text-gray-900 leading-none">万连通</span>
+                <div className="flex items-end space-x-2">
+                  <div className="bg-[#E60012] rounded-md px-1.5 py-0.5 flex items-center justify-center">
+                    <span className="text-white font-bold text-lg leading-none tracking-wider font-sans">万连通</span>
+                  </div>
+                  <span className="text-gray-900 font-medium text-lg leading-none tracking-wide">万连通</span>
                 </div>
-                <span className="text-[10px] text-gray-500 font-medium tracking-wide mt-1">万联易达集团旗下物流服务平台</span>
+                <span className="text-[9px] text-gray-400 font-medium tracking-[0.05em] uppercase mt-1 leading-none">WANLIANTONG LOGISTICS</span>
              </div>
           </button>
 

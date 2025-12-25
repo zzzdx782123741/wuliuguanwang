@@ -1,9 +1,9 @@
-
 import React from 'react';
 
 export interface Capability {
   icon: React.ReactNode;
   label: string;
+  description: string;
 }
 
 export interface Platform {

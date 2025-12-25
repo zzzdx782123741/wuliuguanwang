@@ -27,8 +27,8 @@ const StatsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50 flex justify-center items-center">
-      <div className="max-w-7xl w-full px-4">
+    <section id="section-stats" className="min-h-screen snap-start flex flex-col justify-center py-20 bg-gray-50 items-center relative">
+      <div className="max-w-7xl mx-auto px-4 w-full">
         {/* 标题部分 */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center">
