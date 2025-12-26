@@ -290,9 +290,9 @@ const AfterSales: React.FC = () => {
              <p className="text-gray-500 max-w-2xl text-lg">针对产业链上下游痛点，提供场景化的专属赋能方案</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-16 items-start">
-            {/* Left: Role Navigation */}
-            <div className="lg:w-1/3 flex flex-col space-y-6 sticky top-24">
+          <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-start">
+            {/* Left: Role Navigation - Adjusted width ratio (approx 35%) */}
+            <div className="lg:w-[35%] xl:w-[32%] flex flex-col space-y-6 sticky top-24 w-full">
               {roles.map((role) => (
                 <button
                   key={role.id}
@@ -315,8 +315,8 @@ const AfterSales: React.FC = () => {
               ))}
             </div>
 
-            {/* Right: Dynamic Content Area */}
-            <div className="lg:w-2/3 w-full">
+            {/* Right: Dynamic Content Area - Adjusted width ratio (approx 65%) */}
+            <div className="lg:w-[65%] xl:w-[68%] w-full">
                <div className="bg-[#151925] border border-white/5 rounded-[40px] p-12 lg:p-16 relative overflow-hidden min-h-[500px] flex flex-col justify-center transition-all duration-500">
                    {/* Background Elements */}
                    <div className="absolute top-0 right-0 w-96 h-96 bg-[#E60012]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
