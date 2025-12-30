@@ -5,9 +5,9 @@ import { ArrowRight } from 'lucide-react';
 const SLIDES = [
   {
     id: 'original',
-    type: 'image',
-    image: '/banner-new.png',
-    alt: '易达宝系列产品上线'
+    type: 'overlay',
+    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&q=80&w=2000',
+    alt: 'Red Logistics Truck'
   },
   {
     id: 'new',
@@ -19,17 +19,39 @@ const SLIDES = [
 
 const HomeBanner: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slides, setSlides] = useState(SLIDES);
+
+  useEffect(() => {
+    // 从 localStorage 加载自定义 banner
+    const savedSlides = localStorage.getItem('customBanners');
+    if (savedSlides) {
+      try {
+        setSlides(JSON.parse(savedSlides));
+      } catch (e) {
+        console.error('Failed to load custom banners', e);
+      }
+    }
+    
+    // 监听 localStorage 变化（简单的跨页面/组件同步）
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'customBanners' && e.newValue) {
+        setSlides(JSON.parse(e.newValue));
+      }
+    };
+    window.addEventListener('storage', handleStorageChange);
+    return () => window.removeEventListener('storage', handleStorageChange);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % SLIDES.length);
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
-    <section id="section-home" className="relative h-screen snap-start w-full overflow-hidden flex items-center justify-center bg-gray-900">
-      {SLIDES.map((slide, index) => (
+    <section id="section-home" className="relative h-screen snap-start w-full overflow-hidden flex items-center justify-center bg-gray-900 group/banner">
+      {slides.map((slide, index) => (
         <div 
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
@@ -37,11 +59,11 @@ const HomeBanner: React.FC = () => {
           }`}
         >
           {/* Background Image */}
-          <div className="absolute inset-0">
+          <div className={`absolute inset-0 flex items-center justify-center ${slide.type === 'image' ? 'bg-[#f5f5f7]' : ''}`}>
             <img 
               src={slide.image} 
               alt={slide.alt} 
-              className="w-full h-full object-cover"
+              className={`w-full h-full ${slide.type === 'image' ? 'object-contain' : 'object-cover'}`}
             />
             {slide.type === 'overlay' && (
               <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 via-gray-900/60 to-transparent"></div>

@@ -11,11 +11,12 @@ import MatchmakingPage from './components/MatchmakingPage';
 import MultimodalPage from './components/MultimodalPage';
 import SideNavigation from './components/SideNavigation';
 import MonitorDashboard from './components/MonitorDashboard';
+import BannerAdmin from './src/pages/admin/BannerAdmin';
 import { useAnalytics } from './utils/analytics';
 
 const App: React.FC = () => {
-  // 简单的路由状态：'home' | 'aftersales' | 'matchmaking' | 'multimodal' | 'monitor'
-  const [currentPath, setCurrentPath] = useState<'home' | 'aftersales' | 'matchmaking' | 'multimodal' | 'monitor'>('home');
+  // 简单的路由状态：'home' | 'aftersales' | 'matchmaking' | 'multimodal' | 'monitor' | 'admin-banner'
+  const [currentPath, setCurrentPath] = useState<'home' | 'aftersales' | 'matchmaking' | 'multimodal' | 'monitor' | 'admin-banner'>('home');
 
   // 启动数据采集
   useAnalytics();
@@ -36,6 +37,9 @@ const App: React.FC = () => {
       } else if (hash.includes('admin/monitor')) {
         setCurrentPath('monitor');
         window.scrollTo(0, 0);
+      } else if (hash.includes('admin/banner')) {
+        setCurrentPath('admin-banner');
+        window.scrollTo(0, 0);
       } else {
         setCurrentPath('home');
         window.scrollTo(0, 0);
@@ -55,6 +59,10 @@ const App: React.FC = () => {
 
   if (currentPath === 'monitor') {
     return <MonitorDashboard />;
+  }
+
+  if (currentPath === 'admin-banner') {
+    return <BannerAdmin />;
   }
 
   return (
